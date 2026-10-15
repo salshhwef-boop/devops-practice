@@ -3,6 +3,7 @@ name: DevOps File Test
 
 on:
   push:
+  pull_request:
   workflow_dispatch:
 
 jobs:
@@ -18,3 +19,6 @@ jobs:
 
       - name: Check file content
         run: grep -Fxq "DevOps test" test.txt
+
+      - name: Show success message
+        run: echo "All tests passed!"
