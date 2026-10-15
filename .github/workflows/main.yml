@@ -1,13 +1,20 @@
 
-name: My First DevOps Workflow
+name: DevOps File Test
 
 on:
   push:
   workflow_dispatch:
 
 jobs:
-  learn-devops:
+  test-file:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Show success message
-        run: echo "Hello! My first DevOps workflow works."
+      - name: Download project files
+        uses: actions/checkout@v4
+
+      - name: Check if test.txt exists
+        run: test -f test.txt
+
+      - name: Check file content
+        run: grep -Fxq "DevOps test" test.txt
