@@ -1,0 +1,13 @@
+
+name: My First DevOps Workflow
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  learn-devops:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show success message
+        run: echo "Hello! My first DevOps workflow works."
